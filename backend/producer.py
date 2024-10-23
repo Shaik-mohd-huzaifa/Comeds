@@ -6,18 +6,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-if __name__ == '__main__':
 
+def TopicProducer(topic, message):
     config = {
         # User-specific properties that you must set
-        'bootstrap.servers': 'pkc-p11xm.us-east-1.aws.confluent.cloud:9092',
-        'sasl.username':     'AJBGJNJ6QJLHAEWW',
-        'sasl.password':     'iaf1XTmD5UYPVuWX6SdCfFRgrI9FuXhExTpIwuiG4UxuYfdm7FrpBgHpLcjHtJfl',
-
+        "bootstrap.servers": "<Your_Bootstrap_Servers>",  # e.g., 'pkc-p11xm.us-east-1.aws.confluent.cloud:9092'
+        "sasl.username": "<Your_SASL_Username>",  # e.g., 'AJBGJNJ6QJLHAEWW'
+        "sasl.password": "<Your_SASL_Password>",  # e.g., 'iaf1XTmD5UYPVuWX6SdCfFRgrI9FuXhExTpIwuiG4UxuYfdm7FrpBgHpLcjHtJfl'
         # Fixed properties
-        'security.protocol': 'SASL_SSL',
-        'sasl.mechanisms':   'PLAIN',
-        'acks':              'all'
+        "security.protocol": "SASL_SSL",
+        "sasl.mechanisms": "PLAIN",
+        "acks": "all",
     }
 
     # Create Producer instance
@@ -34,16 +33,10 @@ if __name__ == '__main__':
                 topic=msg.topic(), key=msg.key().decode('utf-8'), value=msg.value().decode('utf-8')))
 
     # Produce data by selecting random values from these lists.
-    topic = "patient_reportss"
-    user_ids = ['eabara', 'jsmith', 'sgarcia', 'jbernard', 'htanaka', 'awalther']
-    products = ['book', 'alarm clock', 't-shirts', 'gift card', 'batteries']
-
-    count = 0
-    for _ in range(10):
-        user_id = choice(user_ids)
-        product = choice(products)
-        producer.produce(topic, product, user_id, callback=delivery_callback)
-        count += 1
+    topic = topic
+    user_id = choice(message.id)
+    product = choice(message.message)
+    producer.produce(topic, product, user_id, callback=delivery_callback)
 
     # Block until the messages are sent.
     producer.poll(10000)

@@ -2,26 +2,25 @@
 
 from confluent_kafka import Consumer
 
-if __name__ == '__main__':
+
+def TopicConsumer(topic):
 
     config = {
         # User-specific properties that you must set
-        'bootstrap.servers': 'pkc-p11xm.us-east-1.aws.confluent.cloud:9092',
-        'sasl.username':     'AJBGJNJ6QJLHAEWW',
-        'sasl.password':     'iaf1XTmD5UYPVuWX6SdCfFRgrI9FuXhExTpIwuiG4UxuYfdm7FrpBgHpLcjHtJfl',
-
+        "bootstrap.servers": "<Your_Bootstrap_Servers>",  # e.g., 'pkc-p11xm.us-east-1.aws.confluent.cloud:9092'
+        "sasl.username": "<Your_SASL_Username>",  # e.g., 'AJBGJNJ6QJLHAEWW'
+        "sasl.password": "<Your_SASL_Password>",  # e.g., 'iaf1XTmD5UYPVuWX6SdCfFRgrI9FuXhExTpIwuiG4UxuYfdm7FrpBgHpLcjHtJfl'
         # Fixed properties
-        'security.protocol': 'SASL_SSL',
-        'sasl.mechanisms':   'PLAIN',
-        'group.id':          'kafka-python-getting-started',
-        'auto.offset.reset': 'earliest'
+        "security.protocol": "SASL_SSL",
+        "sasl.mechanisms": "PLAIN",
+        "acks": "all",
     }
 
     # Create Consumer instance
     consumer = Consumer(config)
 
     # Subscribe to topic
-    topic = "patient_reports"
+    topic = "icu_availability_status"
     consumer.subscribe([topic])
 
     # Poll for new messages from Kafka and print them.
