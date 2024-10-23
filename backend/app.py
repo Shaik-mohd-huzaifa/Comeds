@@ -18,7 +18,7 @@ vectorizer = load_vectorizer(
 )  # Replace with your actual vectorizer filename
 
 
-@app.route("/updateDoctorStatus", methods=["POST"])
+@app.route("/chat", methods=["POST"])
 def update_doctors_availability():
     data = request.get_json()
 
