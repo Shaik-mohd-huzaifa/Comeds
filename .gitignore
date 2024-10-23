@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask cache and instance folder
+instance/
+*.pyc
+*.pyo
+
+# Environment variables
+.env
+*.env
+
+# Virtual environment directory
+venv/
+.venv/
+env/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Database files
+*.sqlite3
+*.db
+*.db-journal
+
+# Logs
+*.log
+logs/
+
+# MacOS files
+.DS_Store
+
+# VS Code files
+.vscode/
+
+# PyCharm files
+.idea/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Test and coverage output
+.tox/
+.nox/
+.cache/
+pytest_cache/
+junitxml.xml
+
+# Docker files
+docker-compose.override.yml
+.dockerignore
+
+# Node modules for any front-end assets
+node_modules/
+
+# Static files built with a build process (e.g., Webpack)
+static/
+dist/
+
+# Temporary files
+*.swp
+*.swo
