@@ -54,3 +54,5 @@ session.timeout.ms=45000
 client.id="CLOUD_ID"                         # Replace with your Confluent cloud ID
 ```
 Make sure to replace the placeholders with your actual Confluent configuration values before starting the application.
+
+This folder <code>./trained_model</code> contains the NLP ML Model which will predict the type of tool to be called based on the user input.
