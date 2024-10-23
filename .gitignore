@@ -8,6 +8,8 @@ instance/
 *.pyc
 *.pyo
 
+client.properties
+
 # Environment variables
 .env
 *.env
